@@ -1,0 +1,228 @@
+.movie-details-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.movie-details-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.back-button {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    display: inline-block;
+}
+.back-button span {
+    display: flex;
+    gap: 5px;
+}
+
+.back-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.movie-details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .movie-details-main {
+        flex-direction: row;
+    }
+}
+
+.movie-poster {
+    flex: 0 0 300px;
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.movie-info-details {
+    flex: 1;
+}
+
+.movie-info-details h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.tagline {
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.movie-meta-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
+    display: inline-block;
+}
+
+.meta-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Floating hearts container */
+.hearts-container {
+    position: absolute;
+    bottom: 100%;  /* Position above the like button */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 80px;
+    pointer-events: none;
+}
+
+/* Floating heart effect */
+.heart-effect {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: floatUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Random positioning and delays for a natural effect */
+.heart-effect:nth-child(1) { left: -10px; animation-delay: 0s; }
+.heart-effect:nth-child(2) { left: 10px; animation-delay: 0.1s; }
+.heart-effect:nth-child(3) { left: -15px; animation-delay: 0.2s; }
+.heart-effect:nth-child(4) { left: 15px; animation-delay: 0.3s; }
+.heart-effect:nth-child(5) { left: -20px; animation-delay: 0.4s; }
+.heart-effect:nth-child(6) { left: 20px; animation-delay: 0.5s; }
+.heart-effect:nth-child(7) { left: -25px; animation-delay: 0.6s; }
+.heart-effect:nth-child(8) { left: 25px; animation-delay: 0.7s; }
+
+/* Keyframe animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-60px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Genre Tags Styling */
+.genre-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+
+
+.overview, .director, .cast {
+    margin-bottom: 1.5rem;
+}
+
+.overview h3, .director h3, .cast h3, .trailer-section h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.cast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.cast-member {
+    text-align: center;
+}
+
+.cast-member img, .cast-placeholder {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cast-member p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cast-member .character {
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+.trailer-section {
+    margin-top: 2rem;
+}
+
+.trailer-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.trailer-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Loading and error states */
+.movie-details-container .error {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 2rem;
+}
+
+.movie-details-container .not-found {
+    text-align: center;
+    padding: 2rem;
+}
